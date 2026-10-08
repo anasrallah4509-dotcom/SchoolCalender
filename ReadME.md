@@ -7,7 +7,6 @@ Adam Nasrallah studente della classe 3^B Informatica dell'I.I.S "G. Vallauri" di
 
 ## Riepilogo vacanze (date stimate dall'immagine)
 
-- Sospensione lezioni: 7/09 (immacolata)
 - Immacolata: 7/12 al 8/12 
 - Vacanze natalizie: dal 23/12/2026 al 6/01/2027
 - Vacanze per Carnevale: dal 6/02/2027 al 10/02/2027
