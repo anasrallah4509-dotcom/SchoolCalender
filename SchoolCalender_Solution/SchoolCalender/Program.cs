@@ -29,6 +29,7 @@ namespace SchoolCalender
                 Console.WriteLine("a) Natale");
                 Console.WriteLine("b) Carnevale");
                 Console.WriteLine("c) Pasqua");
+                Console.WriteLine("d) Pausa lezioni più vicine");
                 Console.WriteLine("q) Esci");
                 DisegnaLinea(titolo.Length + 8);
                 Console.WriteLine("Scegli un'opzione:");
@@ -47,8 +48,10 @@ namespace SchoolCalender
                         Pasqua(oggi);
                         AttesaTasto();
                         break;
+                    case "d":
+                        PausaLezioni(oggi);
+                        break;
                     case "q":
-                        Environment.Exit(0);
                         break;
                     default:
                         Console.WriteLine("Scelta non valida. Riprova.");
@@ -60,7 +63,42 @@ namespace SchoolCalender
         }
 
         /*
-        * - Vacanze pasquali: dal 25/03/2027 al 30/03/2027
+        * Sospensione lezzioni 
+        */
+        private static void PausaLezioni(DateTime oggi)
+        {
+            Console.Clear();
+            DateTime Vacanza;
+            DateTime targetMeta = new DateTime(2027, 01, 01);
+            DateTime targetFine = new DateTime(2027, 06, 01);
+
+            if (oggi < targetMeta)
+            {
+                Vacanza = new DateTime(2026, 12, 07);
+            }
+            else if (oggi < targetFine)
+            {
+                Vacanza = new DateTime(2027, 05, 01);
+            }
+            else
+            {
+                Vacanza = new DateTime(2027, 06, 02);
+            }
+
+            Console.WriteLine("--- SOSPENSIONI LEZIONE PIU VICINA ---");
+            int giorniMancanti = (Vacanza - oggi).Days;
+            if (oggi == Vacanza) 
+            { 
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Oggi c'è vacanza.");
+            }
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine($"Mancano: {giorniMancanti} giorno{(giorniMancanti == 1 ? "" : "i")}");
+            Console.ResetColor();
+        }
+
+        /*
+        * Vacanze pasquali: dal 25/03/2027 al 30/03/2027
         */
         private static void Pasqua(DateTime oggi)
         {
@@ -77,7 +115,7 @@ namespace SchoolCalender
         }
 
         /*
-        * - Vacanze per Carnevale: dal 6/02/2027 al 10/02/2027
+        * Vacanze per Carnevale: dal 6/02/2027 al 10/02/2027
         */
         private static void Carnevale(DateTime oggi)
         {
@@ -93,6 +131,9 @@ namespace SchoolCalender
             Console.ResetColor();
         }
 
+        /*
+         * Vacanze per Natale: dal 23/12 al 6/01
+         */
         private static void Natale(DateTime oggi)
         {
 
