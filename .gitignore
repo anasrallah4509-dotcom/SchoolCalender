@@ -1,0 +1,73 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+out/
+
+# Visual Studio database files
+*.VC.db
+*.VC.VC.opendb
+
+# Rider
+.idea/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# NuGet
+packages/
+*.nupkg
+project.lock.json
+.nuget/
+
+# MSBuild
+*.log
+*.binlog
+
+# Test results
+TestResults/
+*.trx
+
+# Visual Studio temp files
+*.[Cc]ache
+*.ilk
+*.pdb
+*.obj
+
+# Publish
+*.Publish.xml
+
+# Web
+*.publishsettings
+
+# Visual Studio Code
+.vscode/
+
+# Others
+node_modules/
+
+# Files built by JetBrains Rider
+*.sln.iml
+
+# DotCover
+*.dotCover
+
+# ReSharper
+_ReSharper*/
+*.ReSharper
+
+# Backup & report files
+*.bak
+*.backup
+*.log
