@@ -50,6 +50,7 @@ namespace SchoolCalender
                         break;
                     case "d":
                         PausaLezioni(oggi);
+                        AttesaTasto();
                         break;
                     case "q":
                         break;
@@ -71,18 +72,22 @@ namespace SchoolCalender
             DateTime Vacanza;
             DateTime targetMeta = new DateTime(2027, 01, 01);
             DateTime targetFine = new DateTime(2027, 06, 01);
+            string VacanzaName = " ";
 
             if (oggi < targetMeta)
             {
                 Vacanza = new DateTime(2026, 12, 07);
+                VacanzaName = "Immacolata";
             }
             else if (oggi < targetFine)
             {
                 Vacanza = new DateTime(2027, 05, 01);
+                VacanzaName = "Festa del primo maggio";
             }
             else
             {
                 Vacanza = new DateTime(2027, 06, 02);
+                VacanzaName = "Festa del lavoro.";
             }
 
             Console.WriteLine("--- SOSPENSIONI LEZIONE PIU VICINA ---");
@@ -90,10 +95,10 @@ namespace SchoolCalender
             if (oggi == Vacanza) 
             { 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Oggi c'è vacanza.");
+                Console.WriteLine($"Oggi c'è {VacanzaName}");
             }
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine($"Mancano: {giorniMancanti} giorno{(giorniMancanti == 1 ? "" : "i")}");
+            Console.WriteLine($"Mancano: {giorniMancanti} giorno{(giorniMancanti == 1 ? "" : "i")} al {Vacanza.Date} per la {VacanzaName}");
             Console.ResetColor();
         }
 
